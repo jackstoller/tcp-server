@@ -16,11 +16,11 @@ jobs:
         password: ${{ secrets.REGISTRY_PASSWORD }}
 
     - run: |
-        docker build . -t speedtesting.azurecr.io/myapp:latest
-        docker push speedtesting.azurecr.io/myapp:latest
+        docker build . -t speedtesting.azurecr.io/tcp-server:latest
+        docker push speedtesting.azurecr.io/tcp-server:latest
 
     - uses: azure/webapps-deploy@v2
       with:
-        app-name: 'myapp'
+        app-name: 'SpeedTesting'
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-        images: 'speedtesting.azurecr.io/myapp:latest'
+        images: 'speedtesting.azurecr.io/tcp-server:latest'
