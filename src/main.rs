@@ -16,7 +16,7 @@ struct TimestampMessage {
 
 
 fn main() {
-    let listener = TcpListener::bind("0.0.0.0:8000").expect("Could not bind!");
+    let listener = TcpListener::bind("0.0.0.0:80").expect("Could not bind!");
 
     for stream in listener.incoming() {
         match stream {
